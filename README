@@ -1,1 +1,25 @@
 This is for the printer Creality Ender 5 Pro with the board v4.2.2.
+
+The new thing in 2.1 is input shaper, but that is not something we are currently
+using.
+
+In the newer conf2121.h a ENDER5_USE_BLTOUCH constant is defined.
+
+By default in conf2121 has enabled in difference to conf2097:
+- LCD_BED_TRAMMING
+- Z_HOMING_HEIGHT
+- Z_AFTER_HOMING
+
+When enabling BLTouch in conf2121 you only have to change: 
+- Comment in "#define ENDER5_USE_BLTOUCH"
+- Comment out "#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN"
+- Change NOZZLE_TO_PROBE_OFFSET (this can be done afterwards)
+
+By enabling BLTouch in conf2121 you enable:
+- AUTO_BED_LEVELING_BILINEAR
+- G26_MESH_VALIDATION
+- LCD_BED_LEVELING
+- Z_SAFE_HOMING
+
+The NOZZLE_TO_PROBE_OFFSET has been measured to {-45, -6, ??}. Measure Z
+afterwards.
